@@ -12,23 +12,23 @@ use Monolog\Handler\BrowserConsoleHandler;
 use Monolog\Handler\FilterHandler;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+
 require 'buttons.html';
 
 
-if (isset($_GET['type'])){
+if (isset($_GET['type'])) {
 
     $message = $_GET['message'];
 
     $logger = new Logger('my_logger');
     $logger->pushHandler(new BrowserConsoleHandler());
-    $logger->pushHandler(new FilterHandler(new StreamHandler(__DIR__.'/logs/info.log'), Logger::DEBUG, Logger::NOTICE));
-    $logger->pushHandler(new StreamHandler(__DIR__.'/logs/warning.log', Logger::WARNING));
-    $logger->pushHandler(new FilterHandler(new StreamHandler(__DIR__.'/logs/danger.log'), Logger::ERROR, Logger::ALERT));
-    $logger->pushHandler(new StreamHandler(__DIR__.'/logs/emergency.log', Logger::EMERGENCY));
+    $logger->pushHandler(new FilterHandler(new StreamHandler(__DIR__ . '/logs/info.log'), Logger::DEBUG, Logger::NOTICE));
+    $logger->pushHandler(new StreamHandler(__DIR__ . '/logs/warning.log', Logger::WARNING));
+    $logger->pushHandler(new FilterHandler(new StreamHandler(__DIR__ . '/logs/danger.log'), Logger::ERROR, Logger::ALERT));
+    $logger->pushHandler(new StreamHandler(__DIR__ . '/logs/emergency.log', Logger::EMERGENCY));
 
 
-
-    switch ($_GET['type']){
+    switch ($_GET['type']) {
 
         case 'DEBUG':
             $logger->debug($message);

@@ -1,0 +1,2 @@
+[2021-05-04T09:40:44.782626+02:00] my_logger.ERROR: runtime error test [] []
+[2021-05-04T09:41:23.652511+02:00] my_logger.CRITICAL: critical error test [] []
